@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  fastapi:
+    depends_on:
+      - redis
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: ${ENVIRONMENT}
+    image: fastapi
+    command: uvicorn config.main:app --reload --workers 1 --host 0.0.0.0 --port 8080
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    networks:
+      - internal
+
+  redis:
+    image: redis:6.2.6
+    networks:
+      - internal
+
+networks:
+  internal:

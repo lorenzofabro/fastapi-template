@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Number of cores to use for pytest
+PYTEST_NUM_CORES=3
+
+# Print every command
+set -x
+
+#Copied test env variables to a .env file for django-environ to recognize
+cp ./env.local ./.env
+
+#Install packages necessaries to run tests
+pip install -r requirements/base.txt
+pip install -r requirements/test.txt
+
+
+# If anything fails, stops and exits with failure
+set -o errexit
+
+# pytest -n ${PYTEST_NUM_CORES} --cov=apps --cov-report html -x
+pytest  --cov=apps --cov-report html -x # -n ${PYTEST_NUM_CORES}
+
+# Print coverage report on console
+coverage report

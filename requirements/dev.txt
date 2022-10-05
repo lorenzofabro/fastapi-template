@@ -1,0 +1,4 @@
+flake8==4.0.1  # https://gitlab.com/pycqa/flake8
+isort==5.10.1  # https://pycqa.github.io/isort/
+ipdb==0.13.9  # https://github.com/gotcha/ipdb
+ipython==8.0.1  # https://ipython.org/
