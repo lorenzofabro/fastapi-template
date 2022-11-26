@@ -30,14 +30,12 @@ test_db
 .ropeproject
 log.txt
 .venv
-/moni_modules.py
 docker/datadir
 wsgi.py
 statistics/*.csv
 wks.py
 **/settings/local.py
 /env
-/moni/
 error_messages-*
 last_user-*
 .cache
